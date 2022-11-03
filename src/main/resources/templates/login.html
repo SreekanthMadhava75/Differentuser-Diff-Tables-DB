@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html long="en" xmlns:th="https://thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+		content="width=device-width", user-scalable=no, initial-scale=1.0>
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>login page</title>
+</head>
+<body>
+	<h1>Login</h1>
+	<hr/>
+	<div th:if="${successMsg}">
+		<h1>Success</h1>
+		<p>Thanks for registering</p>
+	</div>
+	
+	<div>
+		<form id="loginForm" th:action="@{/login}" method="post">
+			<input type="text" name="email", placeholder="Enter email"/>
+			<br/><br/>
+			<input type="paassword" name="password", placeholder="Enter password"/>
+			<br/><br/>
+			
+			<button type="submit">login</button>
+		</form>
+	</div>
+</body>
+</html>

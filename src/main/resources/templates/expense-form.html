@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Expense</title>
+    <link rel="stylesheet" th:href="@{/css/jquery-ui.css}">
+</head>
+<body>
+    <h1>Create New Expense</h1>
+    <hr/>
+    <div>
+    	<a th:href="@{/logout}">Logout</a>
+    </div>
+    
+    <form th:action="@{/saveOrUpdateExpense}" th:object="${expense}" method="post">
+        <input type="text" placeholder="Enter expense name" th:field="*{name}"/>
+        <br/><br/>
+        <input type="text" placeholder="Enter expense amount" th:field="*{amount}"/>
+        <br/><br/>
+        <input type="text" th:field="*{dateString}" plceholder="dd/mm/yyyy"/, id="createdAt">
+        <br/><br/>
+        <textarea rows="5" placeholder="Enter description" th:field="*{description}"></textarea>
+        <br/><br/>
+        <button type="submit">Submit</button>
+        <input type="hidden" th:field="*{id}"/>
+        <input type="hidden" th:field="*{expenseId}"/>
+    </form>
+    
+    <div>
+    	<a th:href="@{/expences}">Back to expenses</a>
+    </div>
+    <script th:src="@{/js/jquery.js}"></script>
+     <script th:src="@{/js/jquery-ui.js}"></script>
+      <script th:src="@{/js/expense-form.js}"></script>
+</body>
+</html>
